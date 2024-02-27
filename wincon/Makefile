@@ -30,7 +30,7 @@ CC		= gcc
 AR		= ar
 STRIP		= strip
 LINK		= gcc
-WINDRES		= x86_64-w64-mingw32-windres
+WINDRES		= windres
 
 ifeq ($(DEBUG),Y)
 	CFLAGS  = -g -Wall -DPDCDEBUG
@@ -40,7 +40,6 @@ else
 	LDFLAGS =
 endif
 
-CFLAGS += -I/usr/x86_64-w64-mingw32/include
 CFLAGS += -I$(PDCURSES_SRCDIR)
 
 ifeq ($(WIDE),Y)
