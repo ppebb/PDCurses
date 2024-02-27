@@ -30,7 +30,7 @@ CC		= gcc
 AR		= ar
 STRIP		= strip
 LINK		= gcc
-WINDRES		= windres
+WINDRES		= x86_64-w64-mingw32-windres
 
 ifeq ($(DEBUG),Y)
 	CFLAGS  = -g -Wall -DPDCDEBUG
@@ -40,6 +40,7 @@ else
 	LDFLAGS =
 endif
 
+CFLAGS += -I/usr/x86_64-w64-mingw32/include
 CFLAGS += -I$(PDCURSES_SRCDIR)
 
 ifeq ($(WIDE),Y)
@@ -94,6 +95,7 @@ $(LIBOBJS) $(PDCOBJS) : $(PDCURSES_HEADERS)
 $(PDCOBJS) : $(PDCURSES_WIN_H)
 $(DEMOS) : $(PDCURSES_CURSES_H) $(LIBCURSES)
 panel.o : $(PANEL_HEADER)
+curses.o : $(PDCURSES_CURSES_H)
 
 $(LIBOBJS) : %.o: $(srcdir)/%.c
 	$(CC) -c $(CFLAGS) $<

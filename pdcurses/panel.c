@@ -539,6 +539,16 @@ PANEL *panel_below(const PANEL *pan)
     return pan ? pan->below : _top_panel;
 }
 
+PANEL *ceiling_panel(const SCREEN *sp)
+{
+    return NULL;
+}
+
+PANEL *ground_panel(const SCREEN *sp)
+{
+    return NULL;
+}
+
 int panel_hidden(const PANEL *pan)
 {
     if (!pan)

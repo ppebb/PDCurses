@@ -5,7 +5,7 @@
 #ifndef __PDCURSES_PANEL_H__
 #define __PDCURSES_PANEL_H__ 1
 
-#include <curses.h>
+#include "curses.h"
 
 #ifdef __cplusplus
 extern "C"
@@ -38,6 +38,8 @@ PDCEX  int     move_panel(PANEL *pan, int starty, int startx);
 PDCEX  PANEL  *new_panel(WINDOW *win);
 PDCEX  PANEL  *panel_above(const PANEL *pan);
 PDCEX  PANEL  *panel_below(const PANEL *pan);
+PDCEX  PANEL  *ceiling_panel(const SCREEN *sp);
+PDCEX  PANEL  *ground_panel(const SCREEN *sp);
 PDCEX  int     panel_hidden(const PANEL *pan);
 PDCEX  const void *panel_userptr(const PANEL *pan);
 PDCEX  WINDOW *panel_window(const PANEL *pan);

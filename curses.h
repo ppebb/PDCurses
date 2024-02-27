@@ -1391,11 +1391,11 @@ PDCEX  int     wunderscore(WINDOW *);
 
 /* getch() and ungetch() conflict with some DOS libraries */
 
-#define getch()            wgetch(stdscr)
-#define ungetch(ch)        PDC_ungetch(ch)
+PDCEX int getch(void);
+PDCEX void ungetch(int);
 
-#define COLOR_PAIR(n)      (((chtype)(n) << PDC_COLOR_SHIFT) & A_COLOR)
-#define PAIR_NUMBER(n)     (((n) & A_COLOR) >> PDC_COLOR_SHIFT)
+PDCEX int COLOR_PAIR(int);
+PDCEX int PAIR_NUMBER(int);
 
 /* These will _only_ work as macros */
 
