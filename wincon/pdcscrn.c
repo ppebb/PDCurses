@@ -658,7 +658,7 @@ int PDC_init_color(short color, short red, short green, short blue)
         return OK;
     }
 
-    if (color < 16 && !(pdc_conemu || pdc_wt))
+    if (!(pdc_conemu || pdc_wt))
     {
         COLORREF *color_table = _get_colors();
 
