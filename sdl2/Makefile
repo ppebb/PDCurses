@@ -9,6 +9,8 @@ endif
 osdir		= $(PDCURSES_SRCDIR)/sdl2
 common		= $(PDCURSES_SRCDIR)/common
 
+WINDRES     = windres
+
 include $(common)/libobjs.mif
 
 ifeq ($(OS),Windows_NT)
@@ -106,7 +108,7 @@ $(LIBCURSES) : $(LIBOBJS) $(PDCOBJS) $(RESOURCE)
 	$(LIBEXE) $(LIBFLAGS) $@ $? $(LIBLIBS)
 
 pdcurses.o: $(common)/pdcurses.rc
-	windres -i $(common)/pdcurses.rc pdcurses.o
+	$(WINDRES) -i $(common)/pdcurses.rc pdcurses.o
 
 $(LIBOBJS) $(PDCOBJS) : $(PDCURSES_HEADERS)
 $(PDCOBJS) : $(PDCURSES_SDL_H)
